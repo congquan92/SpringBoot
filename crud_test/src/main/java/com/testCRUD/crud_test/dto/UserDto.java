@@ -1,9 +1,16 @@
 package com.testCRUD.crud_test.dto;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 public class UserDto {
+    @Size(min = 2, message = "User name must be 2 char")
+    @NotEmpty(message = "thieu Username")
     private String name;
+    @Size(min = 8, message = "Password must be 8 char")
+    @NotEmpty(message = "Thieu password")
     private String password;
     private String firstName;
     private String lastName;
