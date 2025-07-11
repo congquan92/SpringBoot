@@ -7,6 +7,7 @@ import com.testCRUD.crud_test.entity.User;
 import com.testCRUD.crud_test.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -30,8 +31,12 @@ public class UserController {
         return "test";
     }
     @GetMapping("/users")
-    public List<User> getAllUsers() {
-        return userService.getALL();
+    public ApiResponse<User>getAllUsers() {
+        ApiResponse<User> apiResponse = new ApiResponse<>();
+        List<User> users = userService.getALL();
+        apiResponse.setMessage("getAllUsers success !!");
+        apiResponse.setData2(users);
+        return apiResponse;
     }
     @GetMapping("{id}")
     public User getUser(@PathVariable String id) {

@@ -9,7 +9,7 @@ public class UserDto {
     @Size(min = 3, message = "USER_INVALID")
     @NotEmpty(message = "thieu Username")
     private String name;
-    @Size(min = 6, message = "IVALID_PASSWOR")
+    @Size(min = 6, message = "IVALID_PASSWORD")
     @NotEmpty(message = "Thieu password")
     private String password;
     private String firstName;
